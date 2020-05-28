@@ -15,12 +15,19 @@ public class MultipleMoneyTest {
         assertEquals(Money.dollar(15),five.times(3));
     }
 
+
     @Test
     public void testMultiplicationFranc(){
-        Franc five = new Franc(5);
+//
+//        Franc five = new Franc(5);
+//        assertEquals(new Franc(10), five.times(2));
+//        assertEquals(new Franc(15), five.times(3));
+
+        Franc five = (Franc) Money.franc(5);
         assertEquals(new Franc(10), five.times(2));
         assertEquals(new Franc(15), five.times(3));
     }
+
 
     @Test
     public void testEquality(){
@@ -32,6 +39,12 @@ public class MultipleMoneyTest {
 
         assertFalse(Money.franc(5).equals(Money.dollar(5)));
 
+    }
+
+    @Test
+    public void testCurrency(){
+        assertEquals("USD", Money.dollar(1).currency());
+        assertEquals("CHF", Money.dollar(1).currency());
 
 
     }
